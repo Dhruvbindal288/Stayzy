@@ -13,7 +13,7 @@ function Navbar() {
 
      
       <ul className="hidden md:flex items-center gap-14 font-medium">
-        <li className="hover:text-red-600 cursor-pointer">Home</li>
+       <NavLink to='/'><li className="hover:text-red-600 cursor-pointer">Home</li></NavLink>  
         <li className="hover:text-red-600 cursor-pointer">Experience</li>
      <NavLink to='/login'><li className="hover:text-red-600 cursor-pointer">Login</li></NavLink>   
       </ul>
@@ -32,9 +32,9 @@ function Navbar() {
      
       {isOpen && (
         <ul className="absolute top-14 left-0 w-full bg-white shadow-md flex flex-col items-center gap-6 py-6 font-medium md:hidden">
-          <li className="hover:text-red-600 cursor-pointer">Home</li>
-          <li className="hover:text-red-600 cursor-pointer">Experience</li>
-          <li className="hover:text-red-600 cursor-pointer">Login</li>
+         <NavLink to='/'><li className="hover:text-red-600 cursor-pointer">Home</li></NavLink>  
+        <li className="hover:text-red-600 cursor-pointer">Experience</li>
+     <NavLink to='/login'><li className="hover:text-red-600 cursor-pointer">Login</li></NavLink>   
         </ul>
       )}
     </nav>
