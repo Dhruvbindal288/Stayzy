@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
+ 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -13,7 +15,7 @@ function Navbar() {
       <ul className="hidden md:flex items-center gap-14 font-medium">
         <li className="hover:text-red-600 cursor-pointer">Home</li>
         <li className="hover:text-red-600 cursor-pointer">Experience</li>
-        <li className="hover:text-red-600 cursor-pointer">Login</li>
+     <NavLink to='/login'><li className="hover:text-red-600 cursor-pointer">Login</li></NavLink>   
       </ul>
 
       
