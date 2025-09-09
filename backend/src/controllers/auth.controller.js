@@ -99,11 +99,22 @@ export const login = async (req, res) => {
   }
 };
 
-export const logout=async(req,res)=>{};
+export const logout = (req, res) => {
+  try {
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+    });
+    res.status(200).json({ message: "Logged out successfully" });
+  } catch (error) {
+    console.error("Error in logout:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 
 export const me=async(req,res)=>{}
 
-export const googleLogin=async(req,res)=>{}
 
 export const sendOtp=async(req,res)=>{}
 
