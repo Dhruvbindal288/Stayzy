@@ -11,28 +11,14 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       unique: true,
-      sparse: true, 
       lowercase: true,
     },
 
     password: {
       type: String,
-      select: false, 
+      
     },
-
-    phone: {
-      type: String,
-      unique: true,
-      sparse: true, 
-    },
-
-    googleId: {
-      type: String, 
-      unique: true,
-      sparse: true,
-    },
-
-    role: {
+        role: {
       type: String,
       enum: ["host", "guest"],
       default: "guest",
@@ -42,17 +28,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-
     bio: {
       type: String,
       default: "",
     },
 
     
-    otp: {
-      code: String,
-      expiresAt: Date,
-    },
+    
   },
   { timestamps: true }
 );

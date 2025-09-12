@@ -113,9 +113,21 @@ export const logout = (req, res) => {
 };
 
 
-export const me=async(req,res)=>{}
+export const me = async (req, res) => {
+  try {
+    
+    if (!req.user) {
+      return res.status(401).json({ message: "Not authorized" });
+    }
+
+    res.status(200).json({
+      success: true,
+      user: req.user,
+    });
+  } catch (error) {
+    console.error("Error in me route:", error.message);
+    res.status(500).json({ message: "Server error" });
+  }
+};
 
 
-export const sendOtp=async(req,res)=>{}
-
-export const verifyOtp=async(req,res)=>{}
