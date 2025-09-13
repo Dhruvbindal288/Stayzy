@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-vars */
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axiosInstance from "../lib/axios";
 
 function Signup() {
@@ -14,13 +14,7 @@ function Signup() {
   });
 
   
-  const { data: user } = useQuery({
-    queryKey: ["authUser"],
-    queryFn: async () => {
-      const response = await axiosInstance.get("/auth/me");
-      return response.data.user;
-    },
-  });
+
 
   
   const signupMutation = useMutation({
@@ -110,7 +104,7 @@ function Signup() {
 
          
 
-          {/* ✅ Feedback */}
+         
           {signupMutation.isError && (
             <p className="text-red-500 text-sm">
               {signupMutation.error.response?.data?.message || "Signup failed"}
@@ -144,3 +138,6 @@ function Signup() {
 }
 
 export default Signup;
+
+
+//https://cdn.pixabay.com/photo/2014/07/10/17/18/large-home-389271_1280.jpg

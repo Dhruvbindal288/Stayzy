@@ -9,7 +9,7 @@ function Login() {
     password: "",
   });
 
-  // Login mutation
+  
   const loginMutation = useMutation({
     mutationFn: async (formData) => {
       const response = await axiosInstance.post("/auth/login", formData);
@@ -17,10 +17,10 @@ function Login() {
     },
     onSuccess: (data) => {
       console.log("✅ Login successful:", data);
-      // Example: redirect or update global state here
+      
     },
     onError: (error) => {
-      console.error("❌ Login failed:", error.response?.data || error.message);
+      console.error("Login failed:", error.response?.data || error.message);
     },
   });
 

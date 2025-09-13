@@ -2,20 +2,35 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
-import {Routes,Route} from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import useAuth from './hooks/useAuth'
+
 function App() {
+  const { user, isLoading } = useAuth();
+
+  if (isLoading) return <div>Loading...</div>;
+
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Routes>
-         <Route path='/' element={<Home/>}/>
-        <Route path='/login' element={<Login/>}/>
-  <Route path='/signup' element={<Signup/>}/>
-    
-    </Routes>
+       
+        <Route path="/" element={<Home />} />
+
+       
+        <Route
+          path="/login"
+          element={!user ? <Login /> : <Navigate to="/" />}
+        />
+
+     
+        <Route
+          path="/signup"
+          element={!user ? <Signup /> : <Navigate to="/" />}
+        />
+      </Routes>
     </div>
   )
 }
 
-export default App
- 
+export default App;
