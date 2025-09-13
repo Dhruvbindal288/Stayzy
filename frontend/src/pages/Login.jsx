@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import axiosInstance from "../lib/axios";
+import { login } from "../lib/api";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -11,12 +11,9 @@ function Login() {
 
   
   const loginMutation = useMutation({
-    mutationFn: async (formData) => {
-      const response = await axiosInstance.post("/auth/login", formData);
-      return response.data;
-    },
+    mutationFn:(formData) => login(formData),
     onSuccess: (data) => {
-      console.log("✅ Login successful:", data);
+      console.log("Login successful:", data);
       
     },
     onError: (error) => {

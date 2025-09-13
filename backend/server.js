@@ -5,6 +5,9 @@ import dotenv from 'dotenv'
 dotenv.config()
 import cors from 'cors'
 import connectDb from './src/lib/db.js';
+import listingRouter from './src/routes/listing.router.js'  
+
+
 const app=express();
 
 
@@ -17,7 +20,8 @@ app.use(cors({
 app.use(express.json())
 
 app.use(cookieParser())
-app.use("/api/auth/",authRouter)
+app.use("/api/auth/",authRouter);
+app.use("/api/listing",listingRouter);
 app.listen(3000,()=>{
    connectDb()
     console.log("App is running on port number 3000")
