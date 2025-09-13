@@ -21,7 +21,7 @@ app.use(express.json())
 
 app.use(cookieParser())
 app.use("/api/auth/",authRouter);
-app.use("/api/listing",listingRouter);
+app.use("/api/listings",listingRouter);
 app.listen(3000,()=>{
    connectDb()
     console.log("App is running on port number 3000")

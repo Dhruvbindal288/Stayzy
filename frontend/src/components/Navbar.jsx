@@ -14,7 +14,7 @@ function Navbar() {
      
       <ul className="hidden md:flex items-center gap-14 font-medium">
        <NavLink to='/'><li className="hover:text-red-600 cursor-pointer">Home</li></NavLink>  
-        <li className="hover:text-red-600 cursor-pointer">Experience</li>
+      <NavLink to='/create-listing'>  <li className="hover:text-red-600 cursor-pointer">Host a listing</li></NavLink>
      <NavLink to='/login'><li className="hover:text-red-600 cursor-pointer">Login</li></NavLink>   
       </ul>
 
