@@ -65,3 +65,23 @@ export const allListings = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+export const listingDetails = async (req, res) => {
+  try {
+    const { id: listingId } = req.params;
+
+    const listing = await Listing.findById(listingId).populate(
+      "owner",
+      "fullName email"
+    );
+
+    if (!listing) {
+      return res.status(404).json({ message: "Listing not found" });
+    }
+
+    res.status(200).json(listing);
+  } catch (error) {
+    console.error("Error fetching listing details:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
