@@ -6,6 +6,6 @@ import { protectRoute } from '../middlewares/auth.middleware.js';
 
 router.post('/create-listing',protectRoute,createListing);
 router.get('/all-listings',allListings)
-router.get('/listing/:id',protectRoute,listingDetails)
+router.get('/:id',protectRoute,listingDetails)
 
 export default router;

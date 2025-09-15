@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import useAuth from './hooks/useAuth'
 import CreateListing from './pages/CreateListing'
+import Listing from './pages/Listing'
 function App() {
   const { user, isLoading } = useAuth();
 
@@ -26,7 +27,7 @@ function App() {
           element={!user ? <Login /> : <Navigate to="/" />}
         />
 
-     
+      <Route path="/listing/:id" element={<Listing />} />
         <Route
           path="/signup"
           element={!user ? <Signup /> : <Navigate to="/" />}
