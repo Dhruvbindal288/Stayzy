@@ -1,4 +1,3 @@
-// src/models/listing.model.js
 import mongoose from "mongoose";
 
 const listingSchema = new mongoose.Schema(
